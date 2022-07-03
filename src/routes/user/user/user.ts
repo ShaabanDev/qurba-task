@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import { fetchUser, updateUser } from "../../../controllers/user/user";
+import { fetchUser, getUsersForASpecificCuisine, updateUser } from "../../../controllers/user/user";
 
 import asyncHandler from "../../../utilities/async_handler";
 import createValidationError from "../../../utilities/validation_error_handling";
@@ -18,6 +18,15 @@ router.get(
     })
 );
 
+router.get(
+    "/list/:cuisine",
+    asyncHandler(async (req: Request, res: Response) => {
+        const cuisine = req.params.cuisine;
+
+        const users = await getUsersForASpecificCuisine(cuisine)
+        return res.send(users);
+    })
+);
 
 router.put(
     "/",
