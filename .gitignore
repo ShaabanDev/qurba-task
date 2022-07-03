@@ -1,0 +1,18 @@
+# Compiled JavaScript files
+lib/**/*.js
+lib/**/*.json
+lib/**/*.js.map
+
+# TypeScript v1 declaration files
+typings/
+
+node_modules/
+.jsbeautifyrc
+
+.env
+.DS_Store
+playground.*
+*.py
+
+.vscode
+.husky
